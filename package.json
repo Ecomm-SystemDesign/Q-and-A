@@ -1,0 +1,25 @@
+{
+  "name": "q-a-apiservice",
+  "version": "1.0.0",
+  "description": "API service from Questions and Answers relating to products displayed by FEC application.",
+  "main": "index.js",
+  "scripts": {
+    "build": "node db.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Ecomm-SystemDesign/Q-A-APIservice.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Ecomm-SystemDesign/Q-A-APIservice/issues"
+  },
+  "homepage": "https://github.com/Ecomm-SystemDesign/Q-A-APIservice#readme",
+  "dependencies": {
+    "dotenv": "^16.0.3",
+    "pg": "^8.11.0",
+    "sequelize": "^6.31.1"
+  }
+}
