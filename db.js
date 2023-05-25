@@ -82,7 +82,7 @@ db.query(`CREATE TABLE IF NOT EXISTS reported_questions
    "helpfulness" INTEGER,
    "reported" BOOLEAN,
    "Photos" text ARRAY,
-   CONSTRAINT answers_question_id_fkey FOREIGN KEY
+   CONSTRAINT reported_answers_question_id_fkey FOREIGN KEY
    (question_id) REFERENCES questions (question_id)
    MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION)`
 )

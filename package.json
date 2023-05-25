@@ -1,10 +1,11 @@
 {
-  "name": "q-a-apiservice",
+  "name": "questions-and-answers-api-service",
   "version": "1.0.0",
   "description": "API service from Questions and Answers relating to products displayed by FEC application.",
   "main": "index.js",
   "scripts": {
-    "build": "node db.js"
+    "build": "node db.js",
+    "etl-a": "node ETL/answers.js --max-old-space-size=8192"
   },
   "repository": {
     "type": "git",
