@@ -19,7 +19,6 @@
   "homepage": "https://github.com/Ecomm-SystemDesign/Q-A-APIservice#readme",
   "dependencies": {
     "dotenv": "^16.0.3",
-    "pg": "^8.11.0",
-    "sequelize": "^6.31.1"
+    "pg": "^8.11.0"
   }
 }
