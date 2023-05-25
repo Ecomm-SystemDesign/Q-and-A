@@ -21,7 +21,8 @@ readAnswer.on('line', (line) => {
   }
   db.query(`SELECT * FROM "questions" where question_id=${dataArray[1]}`)
     .then(results => {
-      if (results.length) { //if key is in table write normally
+      console.log(results.rows)
+      if (results.rows.length) { //if key is in table write normally
         if (dataArray[6] === true) {
           db.query(`INSERT INTO "reported_answers"
             ("answer_id",
@@ -83,20 +84,22 @@ readAnswer.on('line', (line) => {
             throw Error('DATA ISSUES! STOP FUNCTIONS!', dataArray)
             answerEvent.destroy(err)
           }
-      } else { // else insert sans foreign key
-        dataArray.splice(1, 1)
+      } else { // else insert with question_reported_id foreign key
+        // dataArray.splice(1, 1)
         if (dataArray[6] === true) {
           db.query(`INSERT INTO "reported_answers"
               ("answer_id",
+              "question_reported_id",
               "body",
               "date",
               "answerer_name",
               "answerer_email",
               "reported",
               "helpfulness")
-              VALUES ($1,$2,$3,$4,$5,$6,$7)
+              VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
               RETURNING
               ("answer_id",
+              "question_reported_id",
               "body",
               "date",
               "answerer_name",
@@ -111,18 +114,20 @@ readAnswer.on('line', (line) => {
                 throw Error(err)
                 answerEvent.destroy(err)
               })
-          } else if (dataArray.length === 7) {
+          } else if (dataArray.length === 8) {
             db.query(`INSERT INTO "answers"
               ("answer_id",
+              "question_reported_id",
               "body",
               "date",
               "answerer_name",
               "answerer_email",
               "reported",
               "helpfulness")
-              VALUES ($1,$2,$3,$4,$5,$6,$7)
+              VALUES ($1,$2,$3,$4,$5,$6,$7,$8)
               RETURNING
               ("answer_id",
+              "question_reported_id",
               "body",
               "date",
               "answerer_name",
