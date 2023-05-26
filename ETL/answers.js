@@ -3,8 +3,9 @@ const fs = require('fs');
 const readline = require('node:readline');
 
 let count = 0;
-
-const answerEvent = fs.createReadStream('/Users/dillonarmstrong/Hack/Quanswers/ETL/answers.csv')
+const readAndStore = (i) => {
+  console.log('reading')
+const answerEvent = fs.createReadStream(`/Users/dillonarmstrong/Hack/Quanswers/ETL/answers-${i}.csv`)
 const readAnswer = readline.createInterface({
   input: answerEvent,
   crlfDelay: Infinity,
@@ -51,7 +52,7 @@ readAnswer.on('line', (line) => {
                   console.log('Written to reported')
                 })
                 .catch(err => {
-                  //console.log('report_answers w/ FK', dataArray)
+                  console.log('report_answers w/ FK', dataArray)
                   throw Error(err)
                   answerEvent.destroy(err)
                 })
@@ -79,9 +80,9 @@ readAnswer.on('line', (line) => {
                     console.log('Written to answers')
                   })
                   .catch(err => {
-                    //console.log('answers w/ FK', dataArray)
-                    throw Error(err)
-                    answerEvent.destroy(err)
+                    console.log('answers w/ FK', dataArray, err)
+                    // throw Error(err)
+                    answerEvent.destroy()
                   })
               } else {
                 console.log(dataArray)
@@ -139,10 +140,10 @@ readAnswer.on('line', (line) => {
                   "reported",
                   "helpfulness")`, dataArray)
                   .then(result => {
-                    console.log('Written to reported')
+                    console.log('Written to answers')
                   })
                   .catch(err => {
-                    //console.log('answers', dataArray)
+                    console.log('answers', dataArray)
                     throw Error(err)
                     answerEvent.destroy(err)
                   })
@@ -154,12 +155,9 @@ readAnswer.on('line', (line) => {
           }
         })
     })
-    count++;
-    console.log(count)
   }
-  setTimeout( () => {
+
     breakItDown(data)
-  }, 60000)
 })
 readAnswer.on('finish', (finish) => {
   console.log('finished with answers, Starting photos')
@@ -180,3 +178,13 @@ readAnswer.on('finish', (finish) => {
   // readPhotos.on('finish', (finish) => {
   // });
 });
+};
+
+// while (count < 6) {
+//   readAndStore(count)
+//   count++
+//   console.log('reading file' + count)
+// }
+readAndStore(0)
+
+

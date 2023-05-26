@@ -1,11 +1,12 @@
 const csvSplitStream = require('csv-split-stream');
+const fs = require('fs');
 
 return csvSplitStream.split(
-  fs.createReadStream('answers.csv'),
+  fs.createReadStream('/Users/dillonarmstrong/Hack/Quanswers/ETL/answers.csv'),
   {
-    lineLimit: 100000
+    lineLimit: 1000000
   },
-  (index) => fs.createWriteStream(`answers-${index}.csv`)
+  (index) => fs.createWriteStream(`/Users/dillonarmstrong/Hack/Quanswers/ETL/answers-${index}.csv`)
 )
 .then(csvSplitResponse => {
   console.log('csvSplitStream succeeded.', csvSplitResponse);
