@@ -5,7 +5,7 @@
   "main": "index.js",
   "scripts": {
     "build": "node db.js",
-    "etl-a": "node ETL/answers.js --max-old-space-size=8192"
+    "etl-a": "node ETL/answers.js --max-old-space-size=12192"
   },
   "repository": {
     "type": "git",
@@ -19,6 +19,7 @@
   },
   "homepage": "https://github.com/Ecomm-SystemDesign/Q-A-APIservice#readme",
   "dependencies": {
+    "csv-split-stream": "^1.0.2",
     "dotenv": "^16.0.3",
     "pg": "^8.11.0"
   }

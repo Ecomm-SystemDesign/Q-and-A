@@ -85,7 +85,6 @@ db.query(`CREATE TABLE IF NOT EXISTS reported_questions
    "answerer_email" VARCHAR(50),
    "helpfulness" INTEGER,
    "reported" BOOLEAN,
-   "Photos" text ARRAY,
    "question_reported_id" INTEGER,
    CONSTRAINT reported_answers_question_id_fkey FOREIGN KEY
    (question_id) REFERENCES questions (question_id)
