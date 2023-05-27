@@ -185,6 +185,11 @@ readAnswer.on('finish', (finish) => {
 //   count++
 //   console.log('reading file' + count)
 // }
-readAndStore(0)
 
+//readAndStore(0)
+
+//readAndStore(1)
+//readAndStore(2)
+// readAndStore(3)
+readAndStore(4)
 
