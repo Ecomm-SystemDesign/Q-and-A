@@ -1,10 +1,11 @@
 {
-  "name": "q-a-apiservice",
+  "name": "questions-and-answers-api-service",
   "version": "1.0.0",
   "description": "API service from Questions and Answers relating to products displayed by FEC application.",
   "main": "index.js",
   "scripts": {
-    "build": "node db.js"
+    "build": "node db2.js",
+    "server-dev": "node API/index.js"
   },
   "repository": {
     "type": "git",
@@ -18,7 +19,10 @@
   },
   "homepage": "https://github.com/Ecomm-SystemDesign/Q-A-APIservice#readme",
   "dependencies": {
+    "cors": "^2.8.5",
+    "csv-split-stream": "^1.0.2",
     "dotenv": "^16.0.3",
+    "express": "^4.18.2",
     "pg": "^8.11.0"
   }
 }

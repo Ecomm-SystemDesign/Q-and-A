@@ -90,4 +90,4 @@ read.on('finish', (finish) => {
   console.log('finished')
 })
 
-//--max-old-space-size=8192
+//--max-old-space-size=12000
