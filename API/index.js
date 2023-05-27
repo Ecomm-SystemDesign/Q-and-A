@@ -1,18 +1,22 @@
 const express = require('express');
 const cors = require('cors');
-// const path = require('path')
+const morgan = require('morgan');
+const path = require('path')
 const { router } = require('./router');
-require('dotenv')
+const logger = require('./middleware/logger');
+require('dotenv').config();
 
 const app = express();
 
 app.use(express.json());
 app.use(cors());
+app.use(morgan('dev'));
+app.use(express.urlencoded({ extended: true }))
 
-app.use('/api/qa', router)
+app.use(logger)
 
-app.connect()
+app.use('/api/qa/', router)
 
-app.listen(process.env.SERVER-PORT, () => {
-  console.log(`LISTENING ON PORT http://localhost:${port}/`);
+app.listen(process.env.SERVERPORT, () => {
+  console.log(`LISTENING ON PORT http://localhost:${process.env.SERVERPORT}/`);
 })

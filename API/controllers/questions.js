@@ -2,37 +2,46 @@ const models = require('../models');
 
 module.exports.get = (req, res) => {
 
-  models.getQuestions(req)
+  models.questions.get(req)
     .then(results => {
-      res.status(200).send(JSON.stringify(results))
+      res.status(200).send(JSON.stringify(results.rows))
     })
     .catch(error => {
-      res.send(404)
+      console.log(error)
+      res.sendStatus(503)
     })
-
 }
+
 module.exports.post = (req, res) =>  {
 
-  models.postQuestions(req)
+  models.questions.post(req)
     .then(results => {
-      res.status(201).send(JSON.stringify(results))
+      res.status(201).send(JSON.stringify(results.rows))
     })
     .catch(error => {
-      res.send(404)
+      res.sendStatus(503)
     })
-
-
-
 }
 
-module.exports.put = (req, res) => {
+module.exports.put = {
 
-  models.putQuestions(req)
+  helpful: (req, res) => {
+  models.questions.helpful(req)
     .then(results => {
       res.status(201).send(JSON.stringify(results))
     })
     .catch(error => {
-      res.send(404)
+      res.sendStatus(503)
     })
+  },
+  reported: (req, res) => {
+    models.questions.report(req)
+      .then(results => {
+        res.status(201).send(JSON.stringify(results))
+      })
+      .catch(error => {
+        res.sendStatus(503)
+      })
+    }
 
 }

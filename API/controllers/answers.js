@@ -1,37 +1,51 @@
 const models = require('../models');
 
 module.exports.get = (req, res) => {
-
-  models.getQuestions(req)
+  console.log(req.params)
+  models.answers.get(req)
     .then(results => {
-      res.status(200).send(JSON.stringify(results))
+      console.log(results)
+      res.status(200).send(JSON.stringify(JSON.parse(results.rows)))
     })
     .catch(error => {
-      res.send(404)
+      res.sendStatus(503)
     })
 
 };
 
 module.exports.post = (req, res) => {
 
-  models.postAnswers(req)
+  models.answers.post(req)
   .then(results => {
     res.status(201).send(JSON.stringify(results))
   })
   .catch(error => {
-    res.send(404)
+    res.sendStatus(503)
   })
 
 }
 
-module.exports.put = (req, res) => {
+module.exports.put = {
 
-  models.putAnswers(req)
-  .then(results => {
-    res.status(201).send(JSON.stringify(results))
-  })
-  .catch(error => {
-    res.send(404)
-  })
+  helpful: (req, res) => {
+    console.log(req.params, 'made it')
+    models.answers.helpful(req)
+    .then(results => {
+      res.status(201).send(JSON.stringify(results))
+    })
+    .catch(error => {
+      res.sendStatus(503)
+    })
+  },
+  reported: (req, res) => {
+    console.log(req.params, 'made it')
+    models.answer.report(req)
+    .then(results => {
+      res.status(201).send(JSON.stringify(results))
+    })
+    .catch(error => {
+      res.sendStatus(503)
+    })
+  }
 
 };

@@ -45,7 +45,6 @@ const db = new Pool({
 //     "answerer_email" VARCHAR(50),
 //     "helpfulness" INTEGER,
 //     "reported" BOOLEAN,
-//     "question_reported_id" INTEGER,
 //      CONSTRAINT answers_question_id_fkey FOREIGN KEY
 //      (question_id) REFERENCES questions (question_id)
 //      MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION)`
