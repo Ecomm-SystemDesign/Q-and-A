@@ -5,9 +5,10 @@ const db = new Pool({
   user: process.env.USER,
   password: process.env.PASSWORD,
   host: process.env.HOST,
-  port: 5432,
+  port: process.env.PORT,
   database: 'quanswers',
 });
+
 // const testConnection = async () => {
 //   try {
 //     await db.query('SELECT 1');

@@ -12,23 +12,23 @@ module.exports.getQuestions = (req) => {
 
 module.exports.postQuestions = (req) => {
   return db.query(
-    `INSERT INTO answers
+    `INSERT INTO questions
     values($1,$2,$3,$4,$5,$6,$7,$8)`,
     req.data)
 }
 
-module.exports.putAnswers = (req) => {
+module.exports.putQuestions = (req) => {
   if (url.parse(req.url).path === 'helpful') {
     return db.query(
-      `UPDATE answers
+      `UPDATE questions
       SET helpfulness = helpfulness + 1
-      WHERE answer_id = ${}`
+      WHERE question_id = ${req.params.question_id}`
     )
   } else if ((url.parse(req.url).path === 'report')) {
     return db.query(
-      `UPDATE answers
+      `UPDATE questions
       SET reported = true
-      WHERE answer_id = ${}`
+      WHERE question_id = ${req.param.question_id}`
       )
   }
 }
