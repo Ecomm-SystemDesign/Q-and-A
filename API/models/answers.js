@@ -1,7 +1,6 @@
 const {db} = require('../db2');
 
 module.exports.get = (req) => {
-  console.log(req.query);
   return db.query(
     `SELECT
       answers.answer_id,

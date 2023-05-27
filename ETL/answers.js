@@ -191,5 +191,6 @@ readAnswer.on('finish', (finish) => {
 //readAndStore(1)
 //readAndStore(2)
 // readAndStore(3)
-readAndStore(4)
-
+//readAndStore(4)
+//readAndStore(5)
+readAndStore(6)
