@@ -5,9 +5,10 @@ const db = new Pool({
   user: process.env.USER,
   password: process.env.PASSWORD,
   host: process.env.HOST,
-  port: 5432,
+  port: process.env.PORT,
   database: 'quanswers',
 });
+
 // const testConnection = async () => {
 //   try {
 //     await db.query('SELECT 1');
@@ -44,7 +45,6 @@ const db = new Pool({
 //     "answerer_email" VARCHAR(50),
 //     "helpfulness" INTEGER,
 //     "reported" BOOLEAN,
-//     "question_reported_id" INTEGER,
 //      CONSTRAINT answers_question_id_fkey FOREIGN KEY
 //      (question_id) REFERENCES questions (question_id)
 //      MATCH SIMPLE ON UPDATE NO ACTION ON DELETE NO ACTION)`
