@@ -13,10 +13,14 @@ app.use(cors());
 app.use(morgan('dev'));
 app.use(express.urlencoded({ extended: true }))
 
-app.use(logger)
+//app.use(logger)
 
-app.use('/api/qa/', router)
+app.use('/api/qa', router)
 
-app.listen(process.env.SERVERPORT, () => {
-  console.log(`LISTENING ON PORT http://localhost:${process.env.SERVERPORT}/`);
-})
+if (!module.parent) {
+  app.listen(process.env.SERVERPORT, () => {
+    console.log(`LISTENING ON PORT http://localhost:${process.env.SERVERPORT}/`);
+  })
+}
+
+module.exports = app;

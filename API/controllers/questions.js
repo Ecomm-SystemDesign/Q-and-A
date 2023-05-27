@@ -16,7 +16,7 @@ module.exports.post = (req, res) =>  {
 
   models.questions.post(req)
     .then(results => {
-      res.status(201).send(JSON.stringify(results.rows))
+      res.status(201).send(JSON.stringify(results))
     })
     .catch(error => {
       res.sendStatus(503)
@@ -26,18 +26,18 @@ module.exports.post = (req, res) =>  {
 module.exports.put = {
 
   helpful: (req, res) => {
-  models.questions.helpful(req)
-    .then(results => {
-      res.status(201).send(JSON.stringify(results))
-    })
-    .catch(error => {
-      res.sendStatus(503)
-    })
+    models.questions.helpful(req)
+      .then(results => {
+        res.status(201).send('COLUMN UPDATED')
+      })
+      .catch(error => {
+        res.sendStatus(503)
+      })
   },
   reported: (req, res) => {
     models.questions.report(req)
       .then(results => {
-        res.status(201).send(JSON.stringify(results))
+        res.status(201).send('COLUMN UPDATED')
       })
       .catch(error => {
         res.sendStatus(503)

@@ -1,11 +1,10 @@
 const models = require('../models');
 
 module.exports.get = (req, res) => {
-  console.log(req.params)
+
   models.answers.get(req)
     .then(results => {
-      console.log(results)
-      res.status(200).send(JSON.stringify(JSON.parse(results.rows)))
+      res.status(200).send(JSON.stringify(results.rows))
     })
     .catch(error => {
       res.sendStatus(503)
@@ -17,7 +16,7 @@ module.exports.post = (req, res) => {
 
   models.answers.post(req)
   .then(results => {
-    res.status(201).send(JSON.stringify(results))
+    res.status(201).send('TABLE UPDATED')
   })
   .catch(error => {
     res.sendStatus(503)
@@ -28,20 +27,20 @@ module.exports.post = (req, res) => {
 module.exports.put = {
 
   helpful: (req, res) => {
-    console.log(req.params, 'made it')
+
     models.answers.helpful(req)
     .then(results => {
-      res.status(201).send(JSON.stringify(results))
+      res.status(201).send('COLUMN UPDATED')
     })
     .catch(error => {
       res.sendStatus(503)
     })
   },
   reported: (req, res) => {
-    console.log(req.params, 'made it')
+
     models.answer.report(req)
     .then(results => {
-      res.status(201).send(JSON.stringify(results))
+      res.status(201).send('COLUMN UPDATED')
     })
     .catch(error => {
       res.sendStatus(503)
