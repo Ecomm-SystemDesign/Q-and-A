@@ -2,9 +2,19 @@ const {db} = require('../db2');
 
 module.exports.get = (req) => {
   return db.query(
-    `SELECT * FROM questions
+    `SELECT
+      question_id,
+      product_id,
+      question_body,
+      date(to_timestamp(date)),
+      asker_name,
+      asker_email,
+      reported,
+      helpfulness
+    FROM questions
     WHERE reported=false
     AND product_id=${req.query.product_id}
+    GROUP BY question_id
     ORDER BY date DESC
     LIMIT ${req.query.count}`
   )

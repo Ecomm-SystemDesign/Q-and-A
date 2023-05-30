@@ -11,7 +11,7 @@ export const options = {
 
 
 export default function () {
-  const randomId = Math.floor(Math.random() * 100000 + 900000)
+  const randomId = Math.floor(Math.random() * 3000000 + 2700000)
 
   const response = http.get(`http://localhost:3000/api/qa/questions/?product_id=${randomId}&count=100`)
 
@@ -19,5 +19,5 @@ export default function () {
     'returns list of questions': (res) => res.status === 200
   })
 
-  sleep(1)
+  //sleep(1)
 }
