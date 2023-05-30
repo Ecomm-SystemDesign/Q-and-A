@@ -1,4 +1,4 @@
-const {db} = require('../db2');
+const { db } = require('../../database/db2');
 
 module.exports.get = (req) => {
   return db.query(

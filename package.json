@@ -4,7 +4,7 @@
   "description": "API service from Questions and Answers relating to products displayed by FEC application.",
   "main": "index.js",
   "scripts": {
-    "build": "node db2.js",
+    "build": "node schemas.js",
     "server-dev": "nodemon --watch API API/index.js",
     "pop": "node ETL/answers.js --max-old-space-size=12381",
     "speed1": "k6 run performance/script2.js",

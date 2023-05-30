@@ -1,4 +1,4 @@
-const { db } = require('../API/db2')
+const { db } = require('./db2')
 
 db.connect()
   .then(() => {
