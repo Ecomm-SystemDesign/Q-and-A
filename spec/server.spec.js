@@ -15,7 +15,7 @@ afterAll((done) => {
 
 describe('GET /api/qa/questions/', () => {
   it('should return a list of questions', async () => {
-    const response = await request(app).get('/api/qa/questions/?product_id=10&count=10');
+    const response = await request(app).get('/api/qa/questions/?product_id=10&count=100');
     expect(response.status).toBe(200)
   })
 })
