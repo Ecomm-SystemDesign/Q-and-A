@@ -24,9 +24,11 @@ module.exports.get = (req) => {
       answers.answerer_name,
       answers.answerer_email,
       answers.reported,
-      answers.helpfulness`
+      answers.helpfulness
+    ORDER BY date DESC`
   )
-
+  // Planning Time: 0.339 ms
+  // Execution Time: 0.229 ms
 }
 
 module.exports.post = (req) => {
@@ -67,4 +69,5 @@ module.exports.report = () => {
     WHERE answer_id = ${req.params.answer_id}`
     )
 }
+
 

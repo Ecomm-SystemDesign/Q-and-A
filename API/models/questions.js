@@ -5,20 +5,23 @@ module.exports.get = (req) => {
     `SELECT * FROM questions
     WHERE reported=false
     AND product_id=${req.query.product_id}
+    ORDER BY date DESC
     LIMIT ${req.query.count}`
   )
+  // Planning Time: 0.175 ms
+  // Execution Time: 0.130 ms
 }
 
 module.exports.post = (req) => {
   return db.query(
     `INSERT INTO questions
-      body,
+      (question_body,
       asker_name,
       asker_email,
       product_id,
-      question_date,
-      question_helpfulness,
-      question_reported
+      date,
+      helpfulness,
+      reported)
     VALUES(
       ${req.body.body},
       ${req.body.name},
@@ -29,6 +32,8 @@ module.exports.post = (req) => {
       false
     )`
   )
+  // Planning Time: 0.049 ms
+ // Execution Time: 0.097 ms
 }
 
 module.exports.helpful = (req) => {
@@ -37,6 +42,8 @@ module.exports.helpful = (req) => {
     SET helpfulness = helpfulness + 1
     WHERE question_id = ${req.params.question_id}`
   )
+  // Planning Time: 0.092 ms
+  // Execution Time: 0.118 ms
 }
 
 module.exports.report = (req) => {
@@ -46,3 +53,5 @@ module.exports.report = (req) => {
     WHERE question_id = ${req.param.question_id}`
     )
 }
+
+
