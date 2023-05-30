@@ -7,10 +7,8 @@
     "build": "node db2.js",
     "server-dev": "nodemon --watch API API/index.js",
     "pop": "node ETL/answers.js --max-old-space-size=12381",
-    "speed1": "k6 run --vus 1 --duration 30s performance/script.js",
-    "speed10": "k6 run --vus 10 --duration 30s performance/script.js",
-    "speed100": "k6 run --vus 100 --duration 30s performance/script.js",
-    "speed": "k6 run performance/script2.js"
+    "speed1": "k6 run performance/script2.js",
+    "speed2": "k6 run performance/script3.js"
   },
   "repository": {
     "type": "git",
