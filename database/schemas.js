@@ -41,6 +41,7 @@ db.connect()
       })
     })
   })
+  .then(db.query(`CREATE INDEX`))
   .catch(err => {
     throw Error(err)
   })
