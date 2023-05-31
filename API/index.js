@@ -20,7 +20,7 @@ app.use('/api/qa', router)
 
 if (!module.parent) {
   app.listen(process.env.SERVERPORT, () => {
-    console.log(`LISTENING ON PORT http://localhost:${process.env.SERVERPORT}/`);
+    console.log(`LISTENING ON PORT http://${process.env.SERVER}:${process.env.SERVERPORT}/`);
   })
 }
 

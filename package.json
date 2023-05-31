@@ -5,8 +5,9 @@
   "main": "index.js",
   "scripts": {
     "build": "node schemas.js",
+    "etl": "node database/ETL/etl-all.js",
     "server-dev": "nodemon --watch API API/index.js",
-    "pop": "node ETL/answers.js --max-old-space-size=12381",
+    "server-prod": "node API API/index.js",
     "speed1": "k6 run performance/script2.js",
     "speed2": "k6 run performance/script3.js"
   },
