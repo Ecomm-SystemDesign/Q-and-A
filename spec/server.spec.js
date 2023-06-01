@@ -50,7 +50,7 @@ describe('PUT /api/qa/questions/:question_id/helpful', () => {
   })
 })
 
-describe('PUT /api/qa//answers/:answer_id/helpful', () => {
+describe('PUT /api/qa/answers/:answer_id/helpful', () => {
   it('should return a list of answers', async () => {
     const response = await request(app).put('/api/qa/answers/100/helpful');
     expect(response.status).toBe(201)
