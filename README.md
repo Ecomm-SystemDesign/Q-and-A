@@ -13,4 +13,4 @@ A database and API solution to provide data related to the Q&A section of an exi
 
 ![k6](https://img.shields.io/badge/k6-7D64FF.svg?style=for-the-badge&logo=k6&logoColor=white)
 ![Jest](https://img.shields.io/badge/Jest-C21325.svg?style=for-the-badge&logo=Jest&logoColor=white)
-Performance tested with Loader.io
+Load tested with <a src='loader.io'> Loader.io </a>
